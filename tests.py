@@ -28,4 +28,10 @@ for i in range(0, len(videos)):
         BASE+'/api/video/'+str(i))
     print("delete")
     print(response.status_code)
-    # print(response.json())
+    print(response.json())
+
+
+response = requests.patch(
+    BASE+'/api/video/'+str(0), data={"views": 100, "name": "Some Video 1 PATCHED"})
+print(response.status_code)
+print(response.json())
