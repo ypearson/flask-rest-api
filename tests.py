@@ -9,13 +9,23 @@ videos = [
     {"likes": "1245", "views": 500, "name": "Some Video 4"},
     {"likes": "500", "views": 700, "name": "Some Video 5"}]
 
+response = requests.get(
+    BASE+'/api/video/'+str(1))
+print(response.status_code)
+print(response.json())
+
+input()
+
 for i in range(0, len(videos)):
     response = requests.post(
         BASE+'/api/video/'+str(i), data=videos[i])
     print(response.status_code)
     print(response.json())
-    
+
+    input()
+
     response = requests.delete(
         BASE+'/api/video/'+str(i))
+    print("delete")
     print(response.status_code)
     # print(response.json())
